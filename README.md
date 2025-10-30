@@ -30,6 +30,7 @@ Instalar MySQL Server y MySQL Workbench:
 
 ## Estructura básica de directorios
 
+``` x
 Shop-ITA/
     ├── backend/ (Node.js)
     |    ├── config/ (Contiene la configuración básico de la aplicación de express y la conexión a la DB)
@@ -54,3 +55,4 @@ Shop-ITA/
         ├── package.json (Es el archivo de configuración de paquetes de la aplicación)
         ├── README.md (Documentación)
         └── tsconfig.json (json con configuración de TS)
+```
