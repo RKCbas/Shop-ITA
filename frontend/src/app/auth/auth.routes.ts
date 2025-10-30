@@ -19,6 +19,10 @@ const authRoutes: Routes = [
         redirectTo: 'login'
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ]
 

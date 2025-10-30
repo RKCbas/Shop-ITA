@@ -6,10 +6,6 @@ const landingRoutes: Routes = [
     path: '',
     component: LandingPage
   },
-  {
-    path: '**',
-    redirectTo: ''
-  },
 ]
 
 export default landingRoutes;

@@ -10,7 +10,7 @@ const productsRoutes: Routes = [
     component: ProductsLayout,
     children:[
       {
-        path: 'all',
+        path: '',
         component: ProductsPage
       },
       {
@@ -22,6 +22,10 @@ const productsRoutes: Routes = [
         redirectTo: ''
       },
     ]
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ]
 
