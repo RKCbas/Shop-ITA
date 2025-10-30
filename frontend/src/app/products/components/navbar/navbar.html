@@ -3,7 +3,8 @@
     <a class="btn btn-ghost text-xl">Shop-ITA</a>
   </div>
   <div class="flex gap-2">
-    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-    <a class="btn">Button</a>
+    <input #txtSearch type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"
+      (keyup.enter)="onSearch()" (keyup)="searchQuery.set(txtSearch.value)" [value]="searchQuery()" />
+    <a class="btn" [routerLink]="['/auth']">Log in</a>
   </div>
 </div>
