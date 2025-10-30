@@ -6,7 +6,11 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(cors())
+app.use(cors({
+  origin: '*',           // Permite cualquier dominio
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
+}));
 app.use(express.json({ limit: '50mb' })); // Importante para imágenes base64
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 

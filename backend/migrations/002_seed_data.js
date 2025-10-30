@@ -15,13 +15,6 @@ export async function seedData() {
     `, [hashedPassword]);
     console.log('✓ Usuario admin creado');
 
-    const userHashedPassword = await bcrypt.hash('user123', 10);
-    await connection.query(`
-      INSERT IGNORE INTO usuarios (nombre, email, password, rol) VALUES
-      ('Usuario', 'user@google.com', ?, 'usuario')
-    `, [userHashedPassword]);
-    console.log('✓ Usuario normal creado');
-    
     // Insertar categorías
     await connection.query(`
       INSERT IGNORE INTO categorias (id, nombre, descripcion) VALUES
@@ -29,13 +22,6 @@ export async function seedData() {
     `);
     console.log('✓ Categorías insertadas');
 
-    // id INT AUTO_INCREMENT PRIMARY KEY,
-    //     nombre VARCHAR(200) NOT NULL,
-    //     descripcion TEXT,
-    //     precio DECIMAL(10, 2) NOT NULL,
-    //     stock INT NOT NULL DEFAULT 0,
-    //     imagen LONGTEXT,
-    //     categoria_id INT,
     // Insertar productos
     await connection.query(`
       INSERT IGNORE INTO productos (nombre, descripcion, precio, stock, imagen, categoria_id) VALUES
