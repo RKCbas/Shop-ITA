@@ -16,6 +16,14 @@ Run the next command to instal the dependencies/node_modules:
 npm i
 ```
 
+Step 3 - Create a migration to the database
+
+To migrate all the data to the database use the next command:
+
+```bash
+npm run migrate
+```
+
 ## Start Server
 
 to start the server run the next command in the terminal:

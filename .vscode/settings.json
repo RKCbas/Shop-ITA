@@ -7,5 +7,13 @@
             "externalTemplate": true,
             "skipStyle": true
         }
-    }
+    },
+    "cSpell.words": [
+        "categoria",
+        "categorias",
+        "descripcion",
+        "direccion",
+        "shopita",
+        "telefono"
+    ]
 }

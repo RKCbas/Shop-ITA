@@ -9,6 +9,15 @@ const user = process.env.user;
 const password = process.env.password;
 const database = process.env.database;
 
+
+export async function createDatabaseConnection() {
+  return await mysql.createConnection({
+    host: host,
+    user: user,
+    password: password
+  });
+}
+
 // Crear un pool de conexiones (recomendado para producción)
 const pool = mysql.createPool({
   host: host,
