@@ -1,17 +1,82 @@
 <div
-  class="hero min-h-screen"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
+  class="hero min-h-screen bg-cover bg-center"
+  style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=870');"
 >
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md">
-      <!-- TODO: Change the background image and personalize this page to say something about its purpose and include the team members -->
-      <h1 class="mb-5 text-5xl font-bold">Shop-ITA</h1>
-      <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
-      <button [routerLink]="['/products']" class="btn btn-primary">Iniciar</button>
+  <div class="hero-overlay bg-black/80"></div>
+
+  <div class="hero-content text-center text-neutral-content px-6">
+    <div class="max-w-4xl">
+      <h1 class="text-6xl font-bold mb-6 mt-6">Shop-ITA</h1>
+
+      <div
+        class="mb-10 text-lg leading-relaxed flex flex-col sm:flex-row sm:items-center gap-5 text-gray-200"
+      >
+        <span class="flex-1 sm:text-right">
+          Plataforma de comercio electrónico deliberadamente vulnerable creada para prácticas de seguridad en
+          aplicaciones web.
+        </span>
+
+        <div class="hidden sm:block w-px h-12 bg-gray-400"></div>
+
+  
+        <span class="flex-1 sm:text-left">
+          Simulación de vulnerabilidad <strong>SQL Injection</strong> en un entorno educativo.
+        </span>
+      </div>
+
+      <button [routerLink]="['/products']" class="btn btn-primary btn-wide mb-10">
+        Iniciar práctica
+      </button>
+
+      <div
+        class="card bg-base-100/10 backdrop-blur-md border border-white/10 shadow-lg max-w-3xl mx-auto"
+      >
+        <div class="card-body text-neutral-content">
+          <div
+            class="flex flex-wrap justify-center gap-2 border-b border-white/10 pb-4 mb-4"
+          >
+            <span class="badge badge-outline badge-info">Equipo 2</span>
+            <span class="badge badge-outline badge-info">
+              Seguridad en Tecnologías de la Información
+            </span>
+            <span class="badge badge-outline badge-info">Unidad 3</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Gustavo Arnoldo Rangel Díaz</p>
+              <p class="text-xs opacity-70">No. Control: 21151041</p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Juan Armando Vallejo Hernández</p>
+              <p class="text-xs opacity-70">No. Control: 21150993</p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Laysha Renatta Montoya González</p>
+              <p class="text-xs opacity-70">No. Control: 21151045</p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Marco Sebastián Hernández Parada</p>
+              <p class="text-xs opacity-70">No. Control: 21150984</p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Alan Arturo Martínez Castro</p>
+              <p class="text-xs opacity-70">No. Control: 21151078</p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <p class="font-semibold">Alfredo Giacinti Reyes</p>
+              <p class="text-xs opacity-70">No. Control: 21150370</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-10 text-xs text-gray-400">Sitio vulnerable con fines académicos.</p>
     </div>
   </div>
 </div>
