@@ -1,0 +1,25 @@
+<div class="card bg-base-100 shadow-sm mx-2 sm:mx-0 animate-fadeIn transition-transform hover:scale-[1.02] hover:shadow-lg h-full
+">
+  <figure>
+    <img class="h-72 sm:h-auto w-full object-cover"
+      [src]="'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'" [alt]="'Shoes'" />
+  </figure>
+  <div class="card-body pt-4">
+    <h2 class="card-title font-montserrat text-primary">
+      {{ 'Shoes' }}
+    </h2>
+    <p>{{ 'A card component has a figure, a body part, and inside body there are title and actions parts' | slice : 0 :
+      100 }}...</p>
+    <div class="card-actions justify-end mt-4">
+      <div class="badge badge-outline">
+        {{ 'Categoria' }}
+      </div>
+      <div class="badge badge-neutral">
+        {{ 'Stock' }}
+      </div>
+      <div class="badge badge-primary">
+        {{ 'Precio' }}
+      </div>
+    </div>
+  </div>
+</div>

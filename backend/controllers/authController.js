@@ -53,7 +53,7 @@ export const login = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { nombre, email, password, telefono, direccion } = req.body;
+  const { nombre, email, password } = req.body;
   
   if (!nombre || !email || !password) {
     return res.status(400).json({ error: 'Nombre, email y password son requeridos' });
@@ -76,8 +76,8 @@ export const register = async (req, res) => {
     
     // Crear usuario
     const [result] = await pool.query(
-      'INSERT INTO usuarios (nombre, email, password, telefono, direccion, rol) VALUES (?, ?, ?, ?, ?, ?)',
-      [nombre, email, password, telefono || null, direccion || null, 'usuario']
+      'INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)',
+      [nombre, email, password, 'usuario']
     );
     
     // Generar token

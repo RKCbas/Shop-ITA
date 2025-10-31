@@ -1,8 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-@plugin "daisyui";
-/* To change the theme
+/* To change the theme */
 @plugin "daisyui" {
   themes: night --default;
 }
- */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+@theme {
+  --animate-fadeIn: fadeIn 0.3s ease-in-out;
+  --animate-fadeOut: fadeOut 1s ease-in-out;
+}

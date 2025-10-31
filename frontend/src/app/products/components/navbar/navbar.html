@@ -5,6 +5,6 @@
   <div class="flex gap-2">
     <input #txtSearch type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"
       (keyup.enter)="onSearch()" (keyup)="searchQuery.set(txtSearch.value)" [value]="searchQuery()" />
-    <a class="btn" [routerLink]="['/auth']">Log in</a>
+    <a class="btn btn-primary" [routerLink]="['/auth']">Log in</a>
   </div>
 </div>
