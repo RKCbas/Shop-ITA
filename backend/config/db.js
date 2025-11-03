@@ -31,7 +31,7 @@ export const pool = mysql.createPool({
 // Función para probar la conexión
 export async function testConnection() {
   try {
-    const [rows] = await promisePool.query('SELECT 1');
+    const [rows] = await pool.query('SELECT 1');
     console.log('Conexión a MySQL', rows ? 'exitosa ✓' : 'fallida ✗');
     return true;
   } catch (error) {

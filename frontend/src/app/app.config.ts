@@ -2,7 +2,8 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from '@auth/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,7 +15,10 @@ export const appConfig: ApplicationConfig = {
       useClass: HashLocationStrategy
     },
     provideHttpClient(
-      withFetch()
+      withFetch(),
+      withInterceptors([
+        authInterceptor
+      ])
     )
   ]
 };

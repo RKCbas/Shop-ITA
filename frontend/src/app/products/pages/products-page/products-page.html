@@ -3,4 +3,15 @@
 </h1>
 <h2 class="text-xl mb-5 ml-3 sm:ml-0">Para todos los gustos</h2>
 
-<app-products-list [products]="[{},{},{},{},{},{},{},{},{},{}]"/>
+@if (productsResource.isLoading()) {
+<h1 class="text-2xl text-center mt-10">Loading<span class="loading loading-dots loading-xl"></span></h1>
+}
+<!--  -->
+@if (productsResource.error()) {
+<h1 class="text-2xl text-center">Error</h1>
+}
+<!--  -->
+@if (productsResource.hasValue()) {
+
+<app-products-list [products]="productsResource.value()" />
+}

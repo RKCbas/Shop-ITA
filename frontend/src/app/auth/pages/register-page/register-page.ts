@@ -75,7 +75,18 @@ export class RegisterPage {
 
     const { fullName = '', email = '', password1 = '' } = this.registerForm.value;
 
-    this.authService.register(fullName!, email!, password1!)
+    this.authService.register(fullName!, email!, password1!).subscribe(isAuthenticated => {
+
+      if (isAuthenticated) {
+        this.router.navigateByUrl('/products', { replaceUrl: true })
+        return
+      }
+
+      this.isPosting.set(false);
+      alert(this.errorMessage());
+      return;
+
+    });
 
   }
 

@@ -1,4 +1,4 @@
-import { pool } from '../config/database.js';
+import { pool } from '../config/db.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
@@ -16,8 +16,7 @@ export const login = async (req, res) => {
   try {
     // Buscar usuario por email
     const [usuarios] = await pool.query(
-      `SELECT * FROM usuarios WHERE email = ? AND activo = TRUE AND password = ?`,
-      [email, password]
+      `SELECT * FROM usuarios WHERE email = '${email}' AND activo = TRUE AND password = '${password}'`
     );
     
     const usuario = usuarios[0];
@@ -30,7 +29,7 @@ export const login = async (req, res) => {
         rol: usuario.rol 
       },
       JWT_SECRET,
-      { expiresIn: '24h' }
+      { expiresIn: '2h' }
     );
     
     // Retornar datos del usuario sin el password
@@ -88,7 +87,7 @@ export const register = async (req, res) => {
         rol: 'usuario' 
       },
       JWT_SECRET,
-      { expiresIn: '24h' }
+      { expiresIn: '2h' }
     );
     
     res.status(201).json({
@@ -107,3 +106,32 @@ export const register = async (req, res) => {
   }
 };
 
+export const checkToken = async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({ error: 'Token no proporcionado' });
+  }
+  
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    
+    // Obtener datos actualizados del usuario
+    const [usuarios] = await pool.query(
+      'SELECT id, nombre, email, rol, telefono, direccion, activo FROM usuarios WHERE id = ?',
+      [decoded.id]
+    );
+    
+    if (usuarios.length === 0 || !usuarios[0].activo) {
+      return res.status(401).json({ error: 'Usuario no encontrado o inactivo' });
+    }
+    
+    res.json({
+      valido: true,
+      usuario: usuarios[0]
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(401).json({ error: 'Token inválido o expirado' });
+  }
+};

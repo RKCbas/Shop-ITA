@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { ProductCard } from "../product-card/product-card";
-import { Product } from '@products/interface/product.interface';
 
 @Component({
   selector: 'app-products-list',
@@ -9,6 +8,6 @@ import { Product } from '@products/interface/product.interface';
 })
 export class ProductsList {
 
-  products = input.required<Product[]>()
+  products = input.required<any[]>()
 
 }

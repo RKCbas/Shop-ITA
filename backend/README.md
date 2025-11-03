@@ -31,3 +31,9 @@ to start the server run the next command in the terminal:
 ```bash
 npm run start
 ```
+
+or with Nodemon
+
+```bash
+npm run dev
+```

@@ -1,6 +1,5 @@
 import { SlicePipe } from '@angular/common';
-import { Component, input } from '@angular/core';
-import { Product } from '@products/interface/product.interface';
+import { Component, input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
@@ -10,5 +9,6 @@ import { Product } from '@products/interface/product.interface';
   templateUrl: './product-card.html',
 })
 export class ProductCard {
-  product = input.required<Product>()
+  product = input.required<any>()
+
 }

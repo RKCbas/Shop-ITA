@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from "express";
 import { findProducts, getProducts } from '../controllers/productController.js';
 
 
-const productsRouter = express.Router();
+const productsRouter = Router();
 
 productsRouter.get('/', getProducts);
 productsRouter.get('/find', findProducts); // Endpoint vulnerable

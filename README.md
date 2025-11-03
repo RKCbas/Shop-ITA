@@ -10,6 +10,8 @@
 
 - Tener MySQL Server de manera local
 
+- Nodemon (Opcional)
+
 ## Instalación y Tutoriales de requerimientos
 
 Instalar Node y NPM:
@@ -20,6 +22,12 @@ Instalar Angular CLI (Se requiere antes tener NODE):
 
 ```bash
 npm install -g @angular/cli
+```
+
+Instalar Nodemon (Opcional, requiere NODE):
+
+```bash
+npm install -g nodemon
 ```
 
 Instalar MySQL Server y MySQL Workbench:

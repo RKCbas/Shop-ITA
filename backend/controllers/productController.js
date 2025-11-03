@@ -1,4 +1,4 @@
-import { pool } from '../config/database.js';
+import { pool } from '../config/db.js';
 
 export const getProducts = async (_req, res) => {
   try {
@@ -17,10 +17,10 @@ export const getProducts = async (_req, res) => {
 
 export const findProducts = async (req,res) => {
 
-  const { busqueda } = req.query;
+  const { query } = req.query;
   
-  if (!busqueda) {
-    return res.status(400).json({ error: 'El parámetro "busqueda" es requerido' });
+  if (!query) {
+    return res.status(400).json({ error: 'El parámetro "query" es requerido' });
   }
   
   try {
@@ -29,7 +29,7 @@ export const findProducts = async (req,res) => {
       FROM productos p 
       LEFT JOIN categorias c ON p.categoria_id = c.id 
       WHERE p.activo = TRUE 
-      AND p.nombre LIKE %${busqueda}%
+      AND p.nombre LIKE '%${query}%'
       ORDER BY p.nombre
     `);
     
@@ -38,7 +38,8 @@ export const findProducts = async (req,res) => {
       productos
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error al buscar productos' });
+    // console.error(error);
+    // res.status(500).json({ error: 'Error al buscar productos' });
+    res.status(500).json({ error });
   }
 }

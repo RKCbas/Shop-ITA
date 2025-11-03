@@ -3,8 +3,26 @@
     <a class="btn btn-ghost text-xl">Shop-ITA</a>
   </div>
   <div class="flex gap-2">
+    @if (authService.authStatus() === 'checking') {
+    <p>Cargando<span class="loading loading-dots loading-sm"></span></p>
+    }
+    <!--  -->
+    @else {
+    @if (authService.authStatus() === 'authenticated') {
+    <div class="flex items-center space-x-2">
+      <p class="text-bold"> {{authService.user()?.nombre}} </p>
+      <div class="badge" [ngClass]=" authService.isAdmin() ? 'badge-primary' : 'badge-secondary' ">{{
+        authService.user()?.rol }}</div>
+    </div>
+    }
     <input #txtSearch type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"
       (keyup.enter)="onSearch()" (keyup)="searchQuery.set(txtSearch.value)" [value]="searchQuery()" />
+    @if (authService.authStatus() === 'not-authenticated') {
     <a class="btn btn-primary" [routerLink]="['/auth']">Log in</a>
+    }
+    @if (authService.authStatus() === 'authenticated') {
+    <a class="btn btn-error" (click)="authService.logout()">Log out</a>
+    }
+    }
   </div>
 </div>
