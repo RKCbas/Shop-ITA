@@ -1,4 +1,4 @@
-import { createDatabaseConnection } from '../config/database.js';
+import { createDatabaseConnection } from '../config/db.js'
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -13,7 +13,7 @@ export async function createDatabase() {
     
     await connection.query(`CREATE DATABASE IF NOT EXISTS ${database}`);
     console.log(`✓ Base de datos '${database}' creada o ya existe`);
-    
+
     return true;
   } catch (error) {
     console.error('✗ Error al crear la base de datos:', error.message);

@@ -1,5 +1,5 @@
 // db.js - Configuración de la conexión a MySQL
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,8 +18,7 @@ export async function createDatabaseConnection() {
   });
 }
 
-// Crear un pool de conexiones (recomendado para producción)
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
   host: host,
   user: user,
   password: password,
@@ -29,11 +28,8 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Exportar versión con promesas para usar async/await
-const promisePool = pool.promise();
-
 // Función para probar la conexión
-async function testConnection() {
+export async function testConnection() {
   try {
     const [rows] = await promisePool.query('SELECT 1');
     console.log('Conexión a MySQL', rows ? 'exitosa ✓' : 'fallida ✗');
@@ -43,5 +39,3 @@ async function testConnection() {
     return false;
   }
 }
-
-export { pool, promisePool, testConnection };

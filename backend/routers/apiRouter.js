@@ -1,6 +1,5 @@
 import { Router } from "express";
 import app from "../config/app";
-import usersRouter from "./users.Router";
 import productsRouter from "./productsRouter";
 import authRouter from "./authRouter";
 
@@ -11,7 +10,6 @@ apiRouter.get('/', (_req, res) => {
 });
 
 app.use('/auth', authRouter)
-app.use('/users', usersRouter)
 app.use('/products', productsRouter)
 
 export default apiRouter;
