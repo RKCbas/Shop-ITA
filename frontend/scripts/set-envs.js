@@ -6,6 +6,7 @@ const targetPathDev = "./src/environments/environment.development.ts";
 
 const envFileContent = `
 export const environment = {
+  // baseUrl: 'http://X.X.X.X:3000/api'
   baseUrl: 'http://localhost:3000/api'
 };
 `;
