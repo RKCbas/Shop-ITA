@@ -16,7 +16,11 @@ Run the next command to instal the dependencies/node_modules:
 npm i
 ```
 
-Step 3 - Create a migration to the database
+step 3 - Environment
+
+create a .env file from .nev.template
+
+Step 4 - Create a migration to the database
 
 To migrate all the data to the database use the next command:
 
