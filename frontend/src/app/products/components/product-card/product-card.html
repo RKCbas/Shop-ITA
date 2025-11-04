@@ -2,7 +2,7 @@
 ">
   <figure>
     @if (product()?.imagen) {
-      <img class="h-72 sm:h-auto w-full object-cover" [src]="'data:image/png;base64,' + product()?.imagen"
+      <img class="h-72 sm:h-auto w-full object-cover" [src]="product()?.imagen"
       [alt]="product()?.nombre ?? 'Sin nombre'" />
     }
     @else {

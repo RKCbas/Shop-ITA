@@ -29,8 +29,7 @@ export const findProducts = async (req,res) => {
       FROM productos p 
       LEFT JOIN categorias c ON p.categoria_id = c.id 
       WHERE p.activo = TRUE 
-      AND p.nombre LIKE '%${query}%'
-      ORDER BY p.nombre
+      AND p.nombre LIKE '%${query}%' ORDER BY p.nombre
     `);
     
     res.json({
