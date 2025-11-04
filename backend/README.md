@@ -18,7 +18,7 @@ npm i
 
 step 3 - Environment
 
-create a .env file from .nev.template
+create a .env file from .env.template
 
 Step 4 - Create a migration to the database
 

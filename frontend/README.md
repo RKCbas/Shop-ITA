@@ -14,15 +14,13 @@ The purpose of this project is to provide a visual web interface to the applicat
    npm i
    ```
 
-3. generate the `.env` from the ``env.template`
-
-4. Run the script to generate the environments:
+3. Run the script to generate the environments:
 
    ```bash
     npm run set-envs
    ```
 
-5. The environment format should be something like this:
+4. The environment format should be something like this:
 
    ```typescript
     export const environment = {
